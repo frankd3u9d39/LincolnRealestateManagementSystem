@@ -15,6 +15,24 @@ export default {
           light: "#FDF2F2",
           dark: "#7f1d1d",
         },
+        brand: {
+          green: {
+            DEFAULT: "#0A5C36", // Lincoln Forest Green in User Management
+            hover: "#084C2C",
+            light: "#ECFDF5",
+            subtle: "#D1FAE5",
+            border: "#A7F3D0",
+            text: "#065F46",
+            badge: "#DEF7EC",
+          },
+          crimson: {
+            DEFAULT: "#B22222",
+            hover: "#991B1B",
+            light: "#FEF2F2",
+            border: "#FECACA",
+            text: "#991B1B",
+          },
+        },
         dark: {
           DEFAULT: "#1A1A1A", // Dark typography, footer, dark accents
           soft: "#2A2A2A",

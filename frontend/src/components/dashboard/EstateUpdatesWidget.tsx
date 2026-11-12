@@ -76,3 +76,4 @@ export function EstateUpdatesWidget({ update }: EstateUpdatesWidgetProps) {
     </div>
   );
 }
+

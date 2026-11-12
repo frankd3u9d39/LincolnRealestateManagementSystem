@@ -43,3 +43,4 @@ export interface DashboardData {
   reminders: ReminderItem[];
   latestUpdate: EstateUpdate;
 }
+

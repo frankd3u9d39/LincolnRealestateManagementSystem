@@ -21,3 +21,4 @@ class Reminder extends Model
         'is_completed' => 'boolean',
     ];
 }
+

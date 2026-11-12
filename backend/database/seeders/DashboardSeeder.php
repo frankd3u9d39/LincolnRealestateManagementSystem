@@ -48,3 +48,4 @@ class DashboardSeeder extends Seeder
         ]);
     }
 }
+

@@ -4,6 +4,11 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "LincolnEstate - Admin Dashboard",
   description: "Real Estate & Estate Community Management System",
+  icons: {
+    icon: "/icon.svg?v=lincoln",
+    shortcut: "/icon.svg?v=lincoln",
+    apple: "/icon.svg?v=lincoln",
+  },
 };
 
 export default function RootLayout({
@@ -19,3 +24,4 @@ export default function RootLayout({
     </html>
   );
 }
+

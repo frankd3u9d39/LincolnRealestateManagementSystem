@@ -84,7 +84,12 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
             const Icon = item.icon;
             const isActive =
               pathname === item.href ||
-              (item.href === "/dashboard" && (pathname === "/" || pathname === "/dashboard"));
+              (item.href === "/dashboard" &&
+                (pathname === "/" ||
+                  pathname === "/dashboard" ||
+                  pathname.startsWith("/dashboard/"))) ||
+              (item.href === "/staffs" &&
+                (pathname.startsWith("/staffs") || pathname.startsWith("/users")));
 
             return (
               <Link
@@ -148,3 +153,4 @@ export function Sidebar({ isOpen, onClose }: SidebarProps) {
     </>
   );
 }
+

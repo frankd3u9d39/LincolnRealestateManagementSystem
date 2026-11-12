@@ -65,3 +65,4 @@ class EstateUpdateController extends Controller
         ], 201);
     }
 }
+

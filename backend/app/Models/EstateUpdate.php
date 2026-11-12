@@ -26,3 +26,4 @@ class EstateUpdate extends Model
         'published_at' => 'datetime',
     ];
 }
+

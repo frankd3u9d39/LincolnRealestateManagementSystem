@@ -26,3 +26,4 @@ export function UnderConstruction({ moduleName }: UnderConstructionProps) {
     </div>
   );
 }
+

@@ -2,6 +2,8 @@
 .DS_Store
 Thumbs.db
 *.log
+*.html
+frontend/tsconfig.tsbuildinfo
 
 # Frontend (Next.js)
 frontend/node_modules/
@@ -41,3 +43,4 @@ backend/.phpunit.result.cache
 *.njsproj
 *.sln
 *.sw?
+

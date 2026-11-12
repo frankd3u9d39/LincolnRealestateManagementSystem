@@ -49,6 +49,39 @@ class DashboardController extends Controller
         ]);
     }
 
+    /**
+     * Return Check-In / Check-Out Dashboard payload (Task 11)
+     */
+    public function accessLogs(): JsonResponse
+    {
+        return response()->json([
+            'status' => 'success',
+            'data' => [
+                'metrics' => [
+                    ['id' => 'total-checkins', 'label' => 'TOTAL CHECK-INS', 'value' => '245', 'icon_type' => 'checkin'],
+                    ['id' => 'total-checkouts', 'label' => 'TOTAL CHECK-OUTS', 'value' => '180', 'icon_type' => 'checkout'],
+                    ['id' => 'residents-inside', 'label' => 'RESIDENTS INSIDE', 'value' => '1,240', 'icon_type' => 'residents'],
+                    ['id' => 'visitors-inside', 'label' => 'VISITORS INSIDE', 'value' => '45', 'icon_type' => 'visitors'],
+                ],
+                'access_logs' => [
+                    ['id' => 1, 'name' => 'Sarah Jenkins', 'person_type' => 'Resident', 'house_no' => 'Villa B-12', 'check_in' => '08:45 AM', 'check_out' => '-', 'gate' => 'Main Gate', 'status' => 'in_estate'],
+                    ['id' => 2, 'name' => 'Mark Davis', 'person_type' => 'Visitor (Food Delivery)', 'initials' => 'MD', 'house_no' => 'Apt 402', 'check_in' => '09:12 AM', 'check_out' => '09:35 AM', 'gate' => 'Service Gate', 'status' => 'checked_out'],
+                    ['id' => 3, 'name' => 'Robert Chen', 'person_type' => 'Resident', 'house_no' => 'Townhouse 7', 'check_in' => '07:30 AM', 'check_out' => '10:15 AM', 'gate' => 'Main Gate', 'status' => 'checked_out'],
+                    ['id' => 4, 'name' => 'Emma Watson', 'person_type' => 'Visitor (Guest)', 'initials' => 'EW', 'house_no' => 'Villa B-12', 'check_in' => '10:45 AM', 'check_out' => '-', 'gate' => 'Main Gate', 'status' => 'in_estate'],
+                    ['id' => 5, 'name' => 'David Lee', 'person_type' => 'Resident', 'house_no' => 'Apt 105', 'check_in' => '11:20 AM', 'check_out' => '-', 'gate' => 'East Gate', 'status' => 'in_estate'],
+                ],
+                'security_summary' => [
+                    'vehicles_entered' => 185,
+                    'vehicles_trend' => '↑ 12%',
+                    'pedestrians' => 60,
+                    'pedestrians_trend' => '↓ 3%',
+                    'alert_title' => 'ALERTS',
+                    'alert_description' => '2 Unregistered vehicles attempted entry at Service Gate.',
+                ],
+            ],
+        ]);
+    }
+
     private function getMetricsData(): array
     {
         return [
@@ -84,3 +117,4 @@ class DashboardController extends Controller
         ];
     }
 }
+
