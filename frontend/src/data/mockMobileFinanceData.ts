@@ -1,0 +1,71 @@
+import { MobileDashboardData } from "@/types/mobileFinance";
+
+export const mockMobileFinanceData: MobileDashboardData = {
+  greetingName: "Admin",
+  metrics: [
+    {
+      id: "total-revenue",
+      label: "TOTAL REVENUE",
+      value: "₦2,482,900",
+      accentColor: "emerald",
+      icon: "wallet",
+      badgeType: "trend",
+      badgeValue: "↗ 12%",
+    },
+    {
+      id: "monthly-target",
+      label: "MONTHLY TARGET",
+      value: "₦450,000",
+      accentColor: "amber",
+      icon: "flag",
+      badgeType: "radial",
+      badgeValue: "76%",
+    },
+    {
+      id: "outstanding",
+      label: "OUTSTANDING",
+      value: "₦12,400",
+      accentColor: "rose",
+      icon: "briefcase",
+      badgeType: "action",
+      actionText: "View",
+    },
+  ],
+  trendMonths: [
+    { month: "JAN", value: 380000 },
+    { month: "FEB", value: 410000 },
+    { month: "MAR", value: 450000, isSelected: true },
+    { month: "APR", value: 390000 },
+    { month: "MAY", value: 430000 },
+    { month: "JUN", value: 420000 },
+  ],
+  recentTransactions: [
+    {
+      id: "1",
+      title: "Unit 402 - Rent",
+      subtitle: "Oct 12, 2023 • Check No. 902",
+      amount: "+₦3,200",
+      type: "income",
+      status: "PAID",
+      icon: "home",
+    },
+    {
+      id: "2",
+      title: "Roof Maintenance",
+      subtitle: "Oct 10, 2023 • Vendor Payout",
+      amount: "-₦1,450",
+      type: "expense",
+      status: "PROCESSING",
+      icon: "wrench",
+    },
+    {
+      id: "3",
+      title: "Unit 105 - Deposit",
+      subtitle: "Oct 09, 2023 • Wire Transfer",
+      amount: "+₦1,500",
+      type: "income",
+      status: "PAID",
+      icon: "building",
+    },
+  ],
+};
