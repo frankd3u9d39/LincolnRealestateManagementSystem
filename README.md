@@ -50,7 +50,19 @@ cd frontend
 npm install
 npm run dev
 ```
-Open [http://localhost:3000](http://localhost:3000) to view the Finance Dashboard.
+Open [http://localhost:3000](http://localhost:3000). It opens the **Sign In** page.
+
+There is no login API yet, so sign-in is a front-end placeholder: any valid-looking email and a password of 6+ characters work.
+Pick a role in **Login as**:
+
+| Role | Lands on |
+|------|----------|
+| Admin / Security | `/management` (admin dashboard, Finance, **Agents** directory at `/agents`) |
+| Agent | `/agent-portal` (the agent's own dashboard: listings, client requests, viewings, earnings) |
+| User | `/finance` |
+
+Admin pages need a signed-in session, and agents are sent to their own portal. Agent and portal changes are saved in the
+browser (localStorage); use **Reset sample data** at the bottom of those pages to restore the demo data.
 
 ### 2. Backend (Laravel API)
 ```bash

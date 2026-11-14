@@ -1,6 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { readSession } from "@/components/auth/session";
 import { Navbar } from "./Navbar";
 import { Sidebar } from "./Sidebar";
 import { MobileDrawer } from "./MobileDrawer";
@@ -11,8 +13,43 @@ interface AppShellProps {
   children: React.ReactNode;
 }
 
+// Full-screen pages that render without the admin navbar / sidebar
+const BARE_ROUTES = ["/login", "/agent-portal"];
+
 export function AppShell({ children }: AppShellProps) {
   const [isMobileDrawerOpen, setIsMobileDrawerOpen] = useState(false);
+  const [allowed, setAllowed] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const isBare = BARE_ROUTES.some((r) => pathname === r || pathname?.startsWith(`${r}/`));
+
+  // Admin pages need a signed-in session; agents belong in their own portal
+  useEffect(() => {
+    if (isBare) return;
+    const session = readSession();
+    if (!session) {
+      setAllowed(false);
+      router.replace("/login");
+    } else if (session.role === "Agent") {
+      setAllowed(false);
+      router.replace("/agent-portal");
+    } else {
+      setAllowed(true);
+    }
+  }, [isBare, pathname, router]);
+
+  if (isBare) {
+    return <>{children}</>;
+  }
+
+  if (!allowed) {
+    return (
+      <div className="flex min-h-screen items-center justify-center bg-slate-50">
+        <div className="h-8 w-8 animate-spin rounded-full border-2 border-primary border-t-transparent" />
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 text-slate-900 antialiased">

@@ -2,7 +2,8 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { clearSession } from "@/components/auth/session";
 import {
   LayoutGrid,
   Wallet,
@@ -10,6 +11,7 @@ import {
   MessageSquare,
   BarChart3,
   Users,
+  BriefcaseBusiness,
   LogOut,
   ChevronDown,
 } from "lucide-react";
@@ -35,6 +37,7 @@ const navItems: NavItem[] = [
     icon: Wallet,
     hasFinanceSubmenu: true,
   },
+  { label: "Agents", href: "/agents", icon: BriefcaseBusiness },
   { label: "Store", href: "/store", icon: Store },
   { label: "Messages", href: "/messages", icon: MessageSquare, badge: 6 },
   { label: "Reports", href: "/reports", icon: BarChart3 },
@@ -43,6 +46,7 @@ const navItems: NavItem[] = [
 
 export function Sidebar() {
   const pathname = usePathname();
+  const router = useRouter();
   const [financeOpen, setFinanceOpen] = useState(true);
 
   return (
@@ -176,6 +180,10 @@ export function Sidebar() {
       <div className="pt-4 border-t border-slate-100">
         <button
           type="button"
+          onClick={() => {
+            clearSession();
+            router.push("/login");
+          }}
           className="flex w-full items-center gap-3 rounded-xl px-4 py-3 text-sm font-medium text-primary hover:bg-primary/5 transition-colors cursor-pointer"
         >
           <LogOut className="h-5 w-5 text-primary" />
