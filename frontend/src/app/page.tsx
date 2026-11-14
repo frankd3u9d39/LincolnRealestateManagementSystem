@@ -1,5 +1,6 @@
-import FinanceDashboardPage from "./finance/page";
+import { redirect } from "next/navigation";
 
+// The landing page is the sign-in screen.
 export default function Home() {
-  return <FinanceDashboardPage />;
+  redirect("/login");
 }
